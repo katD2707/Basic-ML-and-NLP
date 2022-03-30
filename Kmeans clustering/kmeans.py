@@ -82,8 +82,8 @@ class Kmeans:
         member_r_ds = [member.r_d for member in cluster.members]
         aver_r_d = np.mean(member_r_ds, axis=0)
         # sqrt_sum_sqr = np.sqrt(np.sum(aver_r_d**2))
-        # new_centroid = np.array([value/sqrt_sum_sqr for value in aver_r_d])       #why normalize centroid r_d ?
-                                                                                    #for the sake of cosine similarity with dot product only ?
+        # new_centroid = np.array([value/sqrt_sum_sqr for value in aver_r_d])       
+                                                                                    
         # cluster.centroid = new_centroid                                                           
         cluster.centroid = aver_r_d
 
@@ -226,7 +226,7 @@ def classifying_with_linear_SVMs(data_path_1, data_path_2):
 
 news_groups = Kmeans(20)
 news_groups.load_data('../20news-bydate/20news-full-tfidf.txt')
-news_groups.run(seed_value="random", criterion="max_iters", threshold=20)           #0.5810782128833705, thres(20)
+news_groups.run(seed_value="random", criterion="max_iters", threshold=20)           
 accuracy = news_groups.compute_purity()
 print(accuracy)
 
